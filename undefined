@@ -1,0 +1,15 @@
+```scala
+class MyClass(val x: Int) {
+  def myMethod(y: Int): Int = {
+    x + y 
+  }
+}
+
+//Example to demonstrate risk of potential null pointer exception.
+class MyClass2(val myObj: Option[MyClass]){
+  def myMethod2(y: Int): Int = myObj match {
+    case Some(obj) => obj.x + y
+    case None => 0
+  }
+}
+```
